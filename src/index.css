@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #6366F1;
+  --color-primary-hover: #4F46E5;
+  --color-accent: #06B6D4;
+  --color-bg-dark: #0F172A;
+  --color-surface-dark: #1E293B;
+  --color-surface-darker: #15162e;
+  --color-border-dark: #232448;
+  --color-bg-light: #F8FAFC;
+  --color-surface-light: #E2E8F0;
+  --color-card-light: #FFFFFF;
+  --color-text-dark: #F1F5F9;
+  --color-text-light: #0F172A;
+  --color-text-muted: #475569;
+  --color-border-light: #E2E8F0;
+  --font-display: 'Inter', sans-serif;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Base styles */
+body {
+  font-family: var(--font-display);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar — adapts to theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6366F1;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #0F172A;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #2e3057;
+}
+
+/* Utility classes */
+.glow-text {
+  text-shadow: 0 0 20px rgba(99, 102, 242, 0.5);
+}
+
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(99, 102, 242, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(99, 102, 242, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+}
+
+.dark .bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, #232448 1px, transparent 1px),
+    linear-gradient(to bottom, #232448 1px, transparent 1px);
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, #6366F1, #818CF8, #06B6D4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card hover glow */
+.card-glow:hover {
+  box-shadow: 0 0 30px rgba(99, 102, 242, 0.08);
+}
+.dark .card-glow:hover {
+  box-shadow: 0 0 30px rgba(99, 102, 242, 0.15);
+}
+
+/* Tech icon hover glow */
+.tech-glow:hover {
+  box-shadow: 0 0 20px rgba(99, 102, 242, 0.15);
+}
+.dark .tech-glow:hover {
+  box-shadow: 0 0 20px rgba(99, 102, 242, 0.25);
+}
